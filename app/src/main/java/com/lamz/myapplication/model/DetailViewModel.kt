@@ -1,12 +1,9 @@
 package com.lamz.myapplication.model
 
-import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.lamz.myapplication.database.FavoriteRepository
-import com.lamz.myapplication.database.FavoriteUser
 import com.lamz.myapplication.response.DetailUserResponse
 import com.lamz.myapplication.response.ItemsItem
 import com.lamz.myapplication.retrofit.ApiConfig
@@ -14,7 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailViewModel() : ViewModel() {
+class DetailViewModel : ViewModel() {
 
     private val _userProfile = MutableLiveData<DetailUserResponse>()
     val userProfile: LiveData<DetailUserResponse> = _userProfile
@@ -50,7 +47,7 @@ class DetailViewModel() : ViewModel() {
 
     fun getFollowers(q : String ) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getFollower(q, "50000")
+        val client = ApiConfig.getApiService().getFollower(q)
         client.enqueue(object : Callback<List<ItemsItem>> {
             override fun onResponse(call: Call<List<ItemsItem>>, response: Response<List<ItemsItem>>) {
                 _isLoading.value = false
@@ -70,7 +67,7 @@ class DetailViewModel() : ViewModel() {
 
     fun getFollowing(q : String ) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getFollowing(q, "50000")
+        val client = ApiConfig.getApiService().getFollowing(q)
         client.enqueue(object : Callback<List<ItemsItem>> {
             override fun onResponse(call: Call<List<ItemsItem>>, response: Response<List<ItemsItem>>) {
                 _isLoading.value = false

@@ -27,7 +27,7 @@ class MainViewModel : ViewModel(){
 
     fun findUser(q : String ) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getListUsers(q,"50000")
+        val client = ApiConfig.getApiService().getListUsers(q)
         client.enqueue(object : Callback<GithubResponse> {
             override fun onResponse(call: Call<GithubResponse>, response: Response<GithubResponse>) {
                 _isLoading.value = false

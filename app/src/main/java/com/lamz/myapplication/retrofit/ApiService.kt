@@ -10,16 +10,18 @@ import retrofit2.http.*
 
 interface ApiService {
 
+    /*Jika ingin menampilkan list > 30 gunakan query per_page = value*/
+
     @GET("search/users")
-    fun getListUsers(@Query("q") q: String, @Query("per_page") per_page: String): Call<GithubResponse>
+    fun getListUsers(@Query("q") q: String): Call<GithubResponse>
 
     @GET("users/{username}")
     fun getDetailUsers(@Path("username") login : String) : Call<DetailUserResponse>
 
     @GET("users/{username}/followers")
-    fun getFollower(@Path("username") followersUrl : String,@Query("per_page") per_page: String) : Call<List<ItemsItem>>
+    fun getFollower(@Path("username") followersUrl : String) : Call<List<ItemsItem>>
 
     @GET("users/{username}/following")
-    fun getFollowing(@Path("username")followingUrl : String, @Query("per_page") per_page: String) : Call<List<ItemsItem>>
+    fun getFollowing(@Path("username")followingUrl : String) : Call<List<ItemsItem>>
 
 }

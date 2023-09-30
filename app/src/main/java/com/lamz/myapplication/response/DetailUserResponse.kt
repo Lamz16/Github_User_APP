@@ -46,12 +46,6 @@ data class DetailUserResponse(
     @field:SerializedName("id")
     val id: Int,
 
-    @field:SerializedName("public_repos")
-    val publicRepos: Int,
-
-    @field:SerializedName("gravatar_id")
-    val gravatarId: String,
-
     @field:SerializedName("email")
     val email: Any,
 
@@ -70,23 +64,11 @@ data class DetailUserResponse(
     @field:SerializedName("public_gists")
     val publicGists: Int,
 
-    @field:SerializedName("url")
-    val url: String,
-
-    @field:SerializedName("received_events_url")
-    val receivedEventsUrl: String,
-
     @field:SerializedName("followers")
     val followers: Int,
 
     @field:SerializedName("avatar_url")
     val avatarUrl: String,
-
-    @field:SerializedName("events_url")
-    val eventsUrl: String,
-
-    @field:SerializedName("html_url")
-    val htmlUrl: String,
 
     @field:SerializedName("following")
     val following: Int,
@@ -97,6 +79,4 @@ data class DetailUserResponse(
     @field:SerializedName("location")
     val location: String,
 
-    @field:SerializedName("node_id")
-    val nodeId: String
 )
