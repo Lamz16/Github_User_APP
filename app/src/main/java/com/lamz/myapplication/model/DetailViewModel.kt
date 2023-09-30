@@ -25,6 +25,8 @@ class DetailViewModel : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val followLoading: LiveData<Boolean> = _isLoading
 
+    /*profile user dan list follower*/
+
 
     fun getProfile(q : String ) {
         _isLoading.value = true
